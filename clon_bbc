@@ -1,0 +1,500 @@
+<html>
+
+<head>
+<meta charset="utf-8">
+<title> Technology - BBC News </title>
+
+	<style type="text/css">
+		#topbar
+		{
+		width:1100px;
+		height:40px;
+		background-color:#FFFFFF;
+		margin:0 auto;
+		}
+		body{
+		margin:0;
+		padding:0;
+		font-family: Helvetica, freesans, sans-serif;
+		}
+		#logo
+		{
+			margin-top: 8px;
+			width:84px;
+			height:24px;
+			float:left;
+			margin-right: 8px;
+		}
+		.topbar-section
+		{
+			float:left;
+			border-left: 1px #999999 solid;
+			height:100%;
+		}
+		#signin-imagen
+		{
+			width:30px;
+			margin:5px 10px;
+			float:left;
+			
+		}
+		#signin-texto
+		{
+		font-weight:bold;
+		font-size:85%;
+		position:relative;
+		top:13px;
+		right:4px;
+		padding-right:60px;
+		}
+		.topbar-menu
+		{
+		font-weight:bold;
+		font-size:85%;
+		padding:13px 15px 0 15px;
+		height:27px;
+		}
+		#more-arrow
+		{
+		float:right;
+		margin-left:50px;
+		
+		}
+		#search-box
+		{
+		background-color:#E4E4E4;
+		border:none;
+		font-weight:bold;
+		font-size:85%;
+		float:left;
+		width:110px;
+		margin: 5px 0 5px 5px;
+		padding:5px;
+		}
+		#lupa
+		{
+		width:27px;
+		height:27px;
+		margin-top:5px;
+		
+		}<!--fin topbar-->
+		.clear
+		{
+		clear:both;
+		}
+		#menu-bar-container
+		{
+			background-color:#BB1919;
+			width:100%;
+			height:70px;
+			border-top: 1px solid #CCCCCC;
+		}
+		#menu-bar
+		{
+			width:1100px;
+			margin:0 auto;
+		}
+		h1
+		{
+			padding:0;
+			margin:0;
+			color:white;
+			font-size:40px;
+			font-weight:300;
+			padding-top:10px;
+		}
+		#menu-bar-container-2
+		{
+			background-color:#A91717;
+			width:100%;
+			height:40px;
+		}
+		#menu-bar-2
+		{
+			width:1100px;
+			margin:0 auto;
+		}
+		#menu-bar-2 a
+		{
+			color:white;
+			text-decoration:none;
+			font-size:14px;
+			border-right: 1px solid #B84545;
+			position:relative;
+			top:10px;
+			padding: 0 10px;
+		}
+		#menu-bar-2 a:hover
+		{
+		text-decoration:underline;
+		
+		}
+		.no-border
+		{
+		border:none !important;
+		}
+		#flecha-abajo-roja
+		{
+		height:30px;
+		float:right;
+		position:relative;
+		top:8px;
+		right:160px;
+		
+		}
+		#page-container
+		{
+			width:1100px;
+			margin:0 auto;
+		}
+		h2
+		{
+			font-weight:normal;
+			font-size:20px;
+			border-bottom: 3px solid #BB1919;
+			width:105px;
+		}
+		h3 a
+		{
+			color:black;
+			font-size:35px;
+			text-decoration:none;
+		}
+		h3 a:hover
+		{
+			color: #1167A8;
+			text-decoration:underline;
+		}
+		#article-summary
+		{
+			color: #5A5A5A;
+			width:240px;
+			float:left;
+		}
+		#article-summary img
+		{
+			height:22px;
+			position:relative;
+			top:5px;
+			padding-right:4px;
+		}
+		#topic-link
+		{
+			text-decoration:none;
+			color:#A91717;
+			border-left:1px solid #CCCCCC;
+			padding-left: 8px;
+			font-size:14px;
+		}
+		#article-summary a:hover
+		{
+			color: #1167A8;
+			text-decoration:underline;
+		}
+		#date
+		{
+			padding-right:8px;
+			font-size:14px;
+		}
+		#main-article
+		{
+			float:left;
+			width:680px;
+			border-right:1px solid #CCCCCC;
+			padding-right:20px;
+		
+			
+			
+		}
+		#main-article-imagen
+		{
+		width:420px;
+		margin-left:20px;
+		
+		
+		}
+		#article-hr
+		{
+			border-top:1px solid #B91717;
+			width:50px;
+		}
+		.article-link
+		{
+			color:black;
+			text-decoration:none;
+			font-size:14px;
+		}
+		#article-hr-1
+		{
+			border-top:1px solid #CCCCCC;
+			width:680px;
+			position:relative;
+			top:5px;
+		}
+		#watch-listen
+		{
+		margin-left:20px;
+		width:360px;
+		float:right;
+		position:relative;
+		right:20px;
+		top:20px;
+		}
+		h4
+		{
+		font-size:26px;
+		font-weight:normal;
+		}
+		.article-side-image
+		{
+			float:left;
+			width:120px;
+			margin-right:10px;
+			
+			
+		}
+		.watch-listen-link
+		{
+			text-decoration:none;
+			color:black;
+			font-weight:bold;
+			font-size:18px;
+		}
+		.watch-listen-link:hover
+		{
+			text-decoration:underline;
+			color:#1167A8;
+		}
+		#date-1
+		{
+			padding-right:8px;
+			font-size:14px;
+		}
+		#topic-link-1
+		{
+			text-decoration:none;
+			color:#A91717;
+			border-left:1px solid #CCCCCC;
+			padding-left: 8px;
+			font-size:14px;
+		}
+		#topic-link-1:hover
+		{
+			color:#1167A8;
+			text-decoration:underline;
+		}
+		.reloj-1
+		{
+		position:relative;
+		top:5px;
+		}
+		#fecha-watch-listen
+		{
+		position:relative;
+		bottom:15px;
+		right:6px;
+		}
+		#article-china-margen
+		{
+			width:250px;
+			border-right: 1px solid #CCCCCC;
+			height:350px;
+			padding-right:15px;
+			position:relative;
+			top:390px;
+		}
+		#article-china
+		{
+			width:250px;
+		}
+		.article-china-imagen
+		{
+			width:250px;
+			padding-top:10px;
+			
+		}
+		.china-link
+		{
+			text-decoration:none;
+			color:black;
+			font-weight:bold;
+			font-size:18px;
+			
+		}
+		.china-link a:hover
+		{
+			text-decoration:underline;
+			color:#1167A8;
+		}
+		
+		
+	</style>
+
+</head>
+
+<body>
+	<div id="topbar">
+		<img id="logo" src="imagenes/BBCblack.png">
+		<div class="topbar-section">
+			<img id="signin-imagen" src="imagenes/sign-in.PNG" >
+			<span id="signin-texto">Sign in</span>
+		</div>
+		<div class="topbar-section topbar-menu">
+			Home
+		</div>
+		<div class="topbar-section topbar-menu">
+			News
+		</div>
+		<div class="topbar-section topbar-menu">
+			Sport
+		</div>
+		<div class="topbar-section topbar-menu">
+			Reel
+		</div>
+		<div class="topbar-section topbar-menu">
+			Worklife
+		</div>
+		<div class="topbar-section topbar-menu">
+			Travel
+		</div>
+		<div class="topbar-section topbar-menu">
+			Future
+		</div>
+		<div class="topbar-section topbar-menu">
+			Culture
+		</div>
+		<div class="topbar-section topbar-menu">
+			More
+			<img id="more-arrow"src="imagenes/flecha.PNG">
+		</div>
+		<div class="topbar-section">
+		<input type="text" placeholder="search" id="search-box" >
+		<input type="image" id="lupa" src="imagenes/lupa.PNG">
+		</div>
+		
+	</div>
+	<div class="clear">
+	
+	</div>
+	<div id="menu-bar-container">
+		<div id="menu-bar">
+		<h1>NEWS</h1>
+		</div>
+	</div>
+	<div id="menu-bar-container-2">
+		<div id="menu-bar-2">
+		<a href="">Home</a>
+		<a href="">Video</a>
+		<a href="">World</a>
+		<a href="">UK</a>
+		<a href="">Business</a>
+		<a href="">Tech</a>
+		<a href="">Science</a>
+		<a href="">Magazine</a>
+		<a href="">Entertainment & Arts</a>
+		<a href="">Health</a>
+		<a href="">Worl News & TV</a>
+		<a href="" class="no-border">More</a>
+		<img id="flecha-abajo-roja"src="imagenes/flecha_abajo_roja1.PNG">
+		</div>
+	</div>
+	<div class="clear">
+	</div>
+	<div id="page-container">
+		<div id="main-article">
+			<h2>Technology</h2>
+			<h3><a href="">San bernardino hack 'cost FBI over 1$m'</a></h3>
+			<div id="article-summary">
+			<p> The figure paid by the FBI to unnamed experts to unlock the phone
+			 of the San Bernardino killer has been estimated at $1.3m or more.</p>
+			<p>
+				<img src="imagenes/reloj.PNG">
+				<span id="date">22 April 2016</span>
+				<a id="topic-link" href="">Technology</a>
+			</p>
+			<hr id="article-hr" align="left" ></hr>
+			<p><a class="article-link" href="">Apple v the FBI - in plain English</a></p>
+			<p><a class="article-link" href="">Apple's FBI row is only just beginning</a></p>
+			<hr id="article-hr-1" align="left" ></hr>
+			
+			</div>
+			<img id="main-article-imagen"src="imagenes/imagenprincipal.PNG">
+			
+		</div>
+		<div class="clear">
+		</div>
+		<div id="watch-listen">
+		<h4>Watch/Listen</h4>
+		<img class="article-side-image" src="imagenes/imagen_articulo_1.PNG">
+		<a class="watch-listen-link" href="">US Air Force breaks maglev speed record</a>
+		<div id="fecha-watch-listen">
+		<p>
+			<img  class="reloj-1" src="imagenes/reloj.PNG">
+			<span id="date-1">22 April 2016</span> 
+			<a id="topic-link-1" href="">Technology</a>
+		
+		</p>
+		</div>
+		<img class="article-side-image" src="imagenes/imagen_articulo_2.PNG">
+		<a class="watch-listen-link" href="">Wozniak:Apple were right over FBI case</a>
+		<div id="fecha-watch-listen">
+		<p>
+			<img  class="reloj-1" src="imagenes/reloj.PNG">
+			<span id="date-1">13 April 2016</span> 
+			<a id="topic-link-1" href="">Technology</a>
+		</p>
+		</div>
+		<img class="article-side-image" src="imagenes/imagen_articulo_3.PNG">
+		<a class="watch-listen-link" href="">Sweaty billboard could help fight Zika</a>
+		<div id="fecha-watch-listen">
+		<p>
+			<img  class="reloj-1" src="imagenes/reloj.PNG">
+			<span id="date-1">01 April 2016</span> 
+			<a id="topic-link-1" href="">Technology</a>
+		</p>
+		</div>
+		<img class="article-side-image" src="imagenes/imagen_articulo_4.PNG">
+		<a class="watch-listen-link" href="">Drone regulations 'need enforcing'</a>
+		<div id="fecha-watch-listen">
+		<p>
+			<img  class="reloj-1" src="imagenes/reloj.PNG">
+			<span id="date-1">25 March 2016</span> 
+			<a id="topic-link-1" href="">Technology</a>
+		</p>
+		</div>
+		<img class="article-side-image" src="imagenes/imagen_articulo_5.PNG">
+		<a class="watch-listen-link" href="">Shakespeare's plays go virtual in new game</a>
+		<div id="fecha-watch-listen">
+		<p>
+			<img  class="reloj-1" src="imagenes/reloj.PNG">
+			<span id="date-1">20 March 2016</span> 
+			<a id="topic-link-1" href="">Technology</a>
+		</p>
+		</div>
+		<img class="article-side-image" src="imagenes/imagen_articulo_6.PNG">
+		<a class="watch-listen-link" href="">HDR:The next TV revolution</a>
+		<div id="fecha-watch-listen">
+		<p>
+			<img  class="reloj-1" src="imagenes/reloj.PNG">
+			<span id="date-1">05 March 2016</span> 
+			<a id="topic-link-1" href="">Technology</a>
+		</p>
+		</div>
+		</div>
+		<div class="clear"></div>
+		<div id="article-china-margen">
+		</div>
+		<div id="article-china">
+		<img class="article-china-imagen" src="imagenes/article_china.PNG">
+		<a class="china-link" href="">China shuts down two Apple services</a>
+		<p>China has shut down Apple's online book and movie services 
+		as it imposes strict rules governing what can be published on the net.</p>
+		</div>
+		
+				
+
+	</div>
+	
+	</body>
+
+</html>
