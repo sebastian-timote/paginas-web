@@ -1,0 +1,15 @@
+<cfscript>
+
+    WriteOutput("hello");
+    //instanciar el componente ormutility 
+    ormSebasTemplateEObj = new OrmUtilitySebasTemplateE();
+
+
+    //llamar la funcion obtenerTiposDeAcreedor
+    datosOrmTemplateE = ormSebasTemplateEObj.obtenerTiposDeTemplateE();
+
+
+
+    //imprimir el resultado
+    writeDump(datosOrmTemplateE);
+</cfscript>

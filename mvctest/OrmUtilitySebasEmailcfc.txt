@@ -1,0 +1,37 @@
+
+/**
+*
+* @file  C:\AppServ\www\REV22\AiTSSupp\DEVEL\testers\OrmUtilitySebasEmail.cfc
+* @author  TM_FULLNAME
+* @description
+*
+*/
+
+component output="false" displayname=""  {
+
+    public function init(){
+        return this;
+    }
+    public function obtenerTiposDeEmails(){
+        respXML = "";
+       
+
+        //paso 1: cargar los items desde la base de datos
+
+        tiposDeEmail = entityLoad('EmailTypeAll');
+
+        
+       // paso 2: formateo los items
+        for(i=1;i<=arraylen(tiposDeEmail);i++){
+
+            respXML &= "<option>" & tiposDeEmail[i].getEmailTypeDesc() & "<br></option>" ;
+        }
+
+
+        //paso 3: retorno
+
+        return respXML;
+        
+
+    }
+}

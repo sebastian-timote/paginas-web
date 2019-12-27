@@ -1,0 +1,38 @@
+
+/**
+*
+* @file  C:\AppServ\www\REV22\AiTSSupp\DEVEL\testers\OrmUtilitySebasTemplateE.cfc
+* @author  TM_FULLNAME
+* @description
+*
+*/
+
+component output="false" displayname=""  {
+
+    public function init(){
+        return this;
+    }
+    public function obtenerTiposDeTemplateE(){
+        respXML = "";
+       
+
+        //paso 1: cargar los items desde la base de datos
+
+        tiposDeTemplateE = entityLoad('TemplateEmailUser');
+
+        
+       // paso 2: formateo los items
+        for(i=1;i<=arraylen(tiposDeTemplateE);i++){
+
+            respXML &= "<option>" & tiposDeTemplateE[i].getEmailSubject() & "<br></option>" ;
+        }
+
+
+        //paso 3: retorno
+
+        return respXML;
+        
+
+    }
+
+}

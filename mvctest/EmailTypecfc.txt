@@ -1,0 +1,97 @@
+/* Copyright 2013-2018 AITECH Software Corporation, Inc., all rights reserved
+
+
+		Name:	EmailType.cfc
+		Author:	Catherine Smith
+		Date:	13-Jul-2016
+		Desc:	Persistent component defining
+				entity EmailTypeAll [NULL]
+				for BASE TABLE UAT.EnumEmailTypeAll
+
+      	****** Revision History
+
+		By:		Robin Hurtado
+		Date:	01-Feb-2017
+		Desc:	#712 Set up the component line with the proper structure.
+
+		By:		Catherine Smith
+		Date:	28-Apr-2017
+		Desc:	EntityName EmailTypeAll
+		
+		By:		Hernan Manrique
+		Date:	19-May-2017
+		Desc:	#849	Se agrego la property 'SeqCounter' a la ORM
+
+		By:		Francisco Wilchez
+		Date:	14-Mar-2018
+		Desc:	#1058	se modifico el orden de los campos en la funcion init.
+*/
+
+component persistent="true" table="EnumEmailType"
+							entityname="EmailTypeAll"
+							output="false"
+{
+
+	/* Table Columns - Start */
+	property name="EmailTypeID"		ormtype="integer"		notnull="true"	fieldType="id"	generator="identity";
+	property name="EmailTypeCode"	ormtype="string"		notnull="true";
+	property name="EmailTypeDesc"	ormtype="string"		notnull="true";
+	property name="UserCan"			ormtype="boolean"		notnull="true";
+	property name="CredCan"			ormtype="boolean"		notnull="true";
+	property name="SuppCan"			ormtype="boolean"		notnull="true";
+	property name="SortSeq"			ormtype="integer"		notnull="true";
+	property name="SeqCounter"		ormtype="integer"		notnull="true";
+	property name="CreatedDT"		ormtype="timestamp"		notnull="true";
+	property name="CreatedBy"		ormtype="string"		notnull="true";
+	property name="UpdatedDT"		ormtype="timestamp"		notnull="true";
+	property name="UpdatedBy"		ormtype="string"		notnull="true";
+	property name="Active"			ormtype="boolean"		notnull="true";
+	property name="ActiveDT"		ormtype="timestamp";
+	property name="ActiveBy"		ormtype="string";
+	property name="FK_LangCode"		ormtype="string"		notnull="true";
+	/* Table Columns - End */
+
+	/* Functions - Start */
+
+	/*	function init
+		executed on entityNew()
+	*/
+	function init()
+	{
+		
+		
+		this.setUserCan(false);
+		this.setCredCan(false);
+		this.setSuppCan(false);
+		this.setSortSeq(0);
+		this.setSeqCounter(1);
+		this.setActive(true);
+
+		return this;
+	}//end function init
+
+	/*	function clone
+		used to copy existing record to new record
+		program needs to :
+			existObj.setActive=false
+			cloneObj.setSeqCounter(cloneObj.getSeqCounter()+1)
+	*/
+	function clone()
+	{
+		objNew = EntityNew('EmailTypeAll');
+		objNew.setEmailTypeCode(this.getEmailTypeCode());
+		objNew.setEmailTypeDesc(this.getEmailTypeDesc());
+		objNew.setUserCan(this.getUserCan());
+		objNew.setCredCan(this.getCredCan());
+		objNew.setSuppCan(this.getSuppCan());
+		objNew.setSortSeq(this.getSortSeq());
+		objNew.setSeqCounter(this.getSeqCounter()+1);
+		objNew.setActive(true);
+		objNew.setFK_LangCode(this.getFK_LangCode());
+
+		return objNew;
+
+	}//end function clone
+	/* Functions - End */
+
+}

@@ -1,0 +1,15 @@
+<cfscript>
+
+    WriteOutput("hello");
+    //instanciar el componente ormutility 
+    ormutilitySebasEmailObj = new OrmUtilitySebasEmail();
+
+
+    //llamar la funcion obtenerTiposDeAcreedor
+    datosOrmUtilityEmail = ormutilitySebasEmailObj.obtenerTiposDeEmails();
+
+
+
+    //imprimir el resultado
+    writeDump(datosOrmUtilityEmail);
+</cfscript>
