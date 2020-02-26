@@ -1,0 +1,96 @@
+self.addEventListener('fetch', event => {
+    if (event.request.url.includes('.css')) {
+        console.log(event.request.url);
+        //let fotoReq = fetch('img/main.jpg');//el fetch podemos hacerlo con el envio del path relative
+        //let fotoReq = fetch(event.request.url);//el fetch podemos hacerlo con el request url completo 
+        //let fotoReq = fetch(event.request);//el fetch podemos hacerlo con el request completo
+
+        event.respondWith(null);//esta envia ala pagina en este caso null 
+    }
+    //event.respondWith(fetch(event.request));
+    //console.log(event.request.url.includes('.css'));//devuelve booleano
+    //console.log(event.request.url);
+
+});
+
+
+/*intersecto peticion css y agreg otro style*
+*----------------------------------------*/
+self.addEventListener('fetch', event => {
+    if (event.request.url.includes('bbc.css')) {
+        
+        let respuesta = new Response(`
+            body{
+            background-color: blue !important;
+            color: pink;
+            }
+        `,{
+            headers:{
+                'Content-type': 'text/css'
+            }
+            });
+            event.respondWith(respuesta);
+    }
+    
+
+});
+
+
+
+/*------cache----*/
+
+if (window.caches) {
+    caches.open('prueba-1');
+    caches.has('prueba-3').then(console.log);//creacion de cache
+    caches.open('cache-v1.1').then( cache => {
+        //cache.add('clon_bbc.html');//guarda o anade esta pagina al cache
+        cache.addAll([
+            '/clon_bbc.html',
+            '/css/bbc.css',
+            '/imagenes/china.jpg'
+        ]).then( () =>{
+            //cache.delete('/css/style.css');//borra archivo de cache
+            cache.put('clon_bbc.html', new Response('Hola mundo') );//cambia el contenido del archivo por un texto plano 
+        });//guarda varios archivos en cache
+        cache.match('/clon_bbc.html')
+                .then( res => {
+                    res.text().then( console.log );//toma la respuesta del cache y la imprime en consola en forma de texto
+                });
+    });
+    caches.keys().then(Keys => {//coloco los nombres del cache en un array
+        console.log(key);
+    });
+};
+
+
+
+
+/*-------------cache separado------------------*/
+
+const CACHE_STATIC_NAME = 'static-v1';
+const CACHE_DINAMIC_NAME = 'dynamic-v1';
+const CACHE_INMUTABLE_NAME = 'inmutable-v1';
+
+
+self.addEventListener('install', event => {
+  
+    const cacheProm = caches.open(CACHE_STATIC_NAME).then( cache => {
+        return cache.addAll([
+            '/clon_bbc.html',
+            '/imagenes/china.jpg'
+        ]);
+    });
+    const cacheInmutable = caches.open(CACHE_INMUTABLE_NAME).then( cache => cache.add('/css/bbc.css'));
+    event.waitUntil(Promise.all([cacheProm, cacheInmutable]));//espera hasta que se cree la cache
+    const respuesta = caches.match(event.request).then( res => {//contenido dinamico se guarda aqui
+        if (res) return res;
+        console.log('no existe', event.request.url);//GUARDA SI BORRAMOS ALGNOS ELEMENTO DE LA CACHE
+
+        return fetch( event.request).then(newResp => {
+            caches.open(CACHE_DYNAMIC_NAME).then( cache => {
+                cache.put(event.request, newResp);
+            });
+            return newResp.clone();
+        });
+    });
+});
